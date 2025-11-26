@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VFX Buddy - Rotoscoping in Minutes, Not Hours</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 100;
+      cursor: zoom-out;
+      overflow: auto;
+      padding: 2rem;
+    }
+    .lightbox.active {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .lightbox img {
+      max-width: none;
+      height: auto;
+      cursor: zoom-out;
+    }
+    .gallery-item {
+      cursor: zoom-in;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .close-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 101;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.active ~ .close-btn {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-gray-950/80 backdrop-blur-sm border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <span class="text-xl font-bold">🎬 VFX Buddy</span>
+      <a href="#access" class="text-sm font-medium text-indigo-400 hover:text-indigo-300">Request Access →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="pt-32 pb-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl sm:text-7xl font-bold tracking-tight mb-6">
+        Minutes, not hours.
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+        AI-powered rotoscoping. Describe what to isolate, get production-ready masks.
+      </p>
+      <a href="#access" class="inline-block bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors">
+        Request Early Access
+      </a>
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <section class="py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-center text-gray-500 mb-12 text-sm uppercase tracking-widest">Click to zoom · Inspect every edge</p>
+      
+      <div class="grid gap-8 md:grid-cols-2">
+        
+        <!-- Man with curly hair -->
+        <div class="gallery-item rounded-xl overflow-hidden bg-gray-900" onclick="openLightbox('images/VB_Man_preview.png')">
+          <img src="images/VB_Man_preview.png" alt="Person with curly hair - footage and mask comparison" class="w-full">
+          <div class="p-4">
+            <p class="text-sm text-gray-400">Prompt: <span class="text-white font-medium">"person"</span></p>
+          </div>
+        </div>
+
+        <!-- Kitten -->
+        <div class="gallery-item rounded-xl overflow-hidden bg-gray-900" onclick="openLightbox('images/VB_Kitten_preview.png')">
+          <img src="images/VB_Kitten_preview.png" alt="Fuzzy kitten on couch - footage and mask comparison" class="w-full">
+          <div class="p-4">
+            <p class="text-sm text-gray-400">Prompt: <span class="text-white font-medium">"kitten"</span></p>
+          </div>
+        </div>
+
+        <!-- Birds -->
+        <div class="gallery-item rounded-xl overflow-hidden bg-gray-900" onclick="openLightbox('images/VB_Birds_preview.png')">
+          <img src="images/VB_Birds_preview.png" alt="Flock of birds in flight - footage and mask comparison" class="w-full">
+          <div class="p-4">
+            <p class="text-sm text-gray-400">Prompt: <span class="text-white font-medium">"flock"</span></p>
+          </div>
+        </div>
+
+        <!-- Flowing Dress -->
+        <div class="gallery-item rounded-xl overflow-hidden bg-gray-900" onclick="openLightbox('images/VB_Dress_preview.png')">
+          <img src="images/VB_Dress_preview.png" alt="Woman in flowing dress running through forest - footage and mask comparison" class="w-full">
+          <div class="p-4">
+            <p class="text-sm text-gray-400">Prompt: <span class="text-white font-medium">"woman"</span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Simple stats -->
+  <section class="py-16 px-6 border-t border-white/5">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-3 gap-8 text-center">
+        <div>
+          <p class="text-4xl font-bold text-indigo-400">300</p>
+          <p class="text-sm text-gray-500 mt-1">frames per batch</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-indigo-400">~90%</p>
+          <p class="text-sm text-gray-500 mt-1">average accuracy</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-indigo-400">PNG</p>
+          <p class="text-sm text-gray-500 mt-1">Adobe-ready output</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="access" class="py-24 px-6 bg-indigo-950/50">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to skip the tedium?</h2>
+      <p class="text-gray-400 mb-8">Early access: $25/minute of footage. Denver-based support.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://calendly.com/YOUR_CALENDLY_LINK" class="bg-white text-gray-900 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors">
+          Book a Demo
+        </a>
+        <a href="mailto:sean@vfxbuddy.ai" class="border border-white/20 text-white font-semibold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 border-t border-white/5">
+    <p class="text-center text-sm text-gray-600">
+      © 2025 VFX Buddy. Denver, CO.
+    </p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed preview">
+  </div>
+  <button class="close-btn" onclick="closeLightbox()">×</button>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
