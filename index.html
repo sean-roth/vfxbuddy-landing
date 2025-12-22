@@ -6,6 +6,29 @@
   <title>VFX Buddy - Professional Selections in Minutes, Not Hours</title>
   <meta name="description" content="AI-powered rotoscoping for wedding videographers. Isolate the couple, remove unwanted guests, get production-ready masks in minutes.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FDF8F3',
+            amber: {
+              DEFAULT: '#F59E0B',
+              50: '#FFFBEB',
+              100: '#FEF3C7',
+              200: '#FDE68A',
+              300: '#FCD34D',
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#D97706',
+              700: '#B45309',
+            },
+            'header-dark': '#1a1a1a',
+          }
+        }
+      }
+    }
+  </script>
   <style>
     .lightbox {
       display: none;
@@ -33,7 +56,7 @@
     }
     .gallery-item:hover {
       transform: scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
     .close-btn {
       position: fixed;
@@ -60,32 +83,37 @@
     }
     .pricing-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);
     }
   </style>
 </head>
-<body class="bg-gray-950 text-white">
+<body class="bg-cream text-gray-900">
 
   <!-- Navigation -->
-  <nav class="fixed top-0 inset-x-0 z-50 bg-gray-950/80 backdrop-blur-sm border-b border-white/5">
+  <nav class="fixed top-0 inset-x-0 z-50 bg-header-dark text-white">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <span class="text-xl font-bold">🎬 VFX Buddy</span>
-      <a href="#pricing" class="text-sm font-medium text-indigo-400 hover:text-indigo-300">See Pricing →</a>
+      <span class="text-xl font-bold flex items-center gap-2">
+        <svg class="w-7 h-7 text-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
+        </svg>
+        VFX Buddy
+      </span>
+      <a href="/app" class="text-sm font-medium bg-amber hover:bg-amber-600 text-white px-4 py-2 rounded-lg transition-colors">Launch App →</a>
     </div>
   </nav>
 
   <!-- Hero -->
   <header class="pt-32 pb-16 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <p class="text-indigo-400 font-medium mb-4">For Wedding Videographers</p>
-      <h1 class="text-5xl sm:text-7xl font-bold tracking-tight mb-6">
+      <p class="text-amber-600 font-medium mb-4">For Wedding Videographers</p>
+      <h1 class="text-5xl sm:text-7xl font-bold tracking-tight mb-6 text-gray-900">
         Professional selections<br>in minutes, not hours.
       </h1>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
         You know the effect you want. The mask is the bottleneck.<br>
-        <span class="text-white">We solved it.</span>
+        <span class="text-gray-900 font-medium">We solved it.</span>
       </p>
-      <a href="#pricing" class="inline-block bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors">
+      <a href="/app" class="inline-block bg-amber hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors shadow-lg">
         Start Free Trial
       </a>
     </div>
@@ -94,32 +122,32 @@
   <!-- Hero Image -->
   <section class="px-6 pb-16">
     <div class="max-w-5xl mx-auto">
-      <div class="gallery-item rounded-xl overflow-hidden bg-gray-900" onclick="openLightbox('images/VB_woman_in_white_dress_compressed.jpg')">
+      <div class="gallery-item rounded-xl overflow-hidden bg-white shadow-xl" onclick="openLightbox('images/VB_woman_in_white_dress_compressed.jpg')">
         <img src="images/VB_woman_in_white_dress_compressed.jpg" alt="Woman dancing in flowing white dress - footage and mask comparison showing AI-generated selections" class="w-full">
         <div class="p-4 flex justify-between items-center">
-          <p class="text-sm text-gray-400">Prompt: <span class="text-white font-medium">"woman in white dress"</span></p>
-          <p class="text-sm text-indigo-400 font-medium">93% confidence</p>
+          <p class="text-sm text-gray-500">Prompt: <span class="text-gray-900 font-medium">"woman in white dress"</span></p>
+          <p class="text-sm text-amber-600 font-medium">93% confidence</p>
         </div>
       </div>
-      <p class="text-center text-gray-500 mt-4 text-sm">Click to zoom · Every fold of the fabric, every frame</p>
+      <p class="text-center text-gray-400 mt-4 text-sm">Click to zoom · Every fold of the fabric, every frame</p>
     </div>
   </section>
 
   <!-- The Problem -->
-  <section class="py-16 px-6 border-t border-white/5">
+  <section class="py-16 px-6 border-t border-amber-100">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl font-bold mb-8 text-center">The selection is the hard part</h2>
-      <div class="space-y-6 text-lg text-gray-400">
+      <div class="space-y-6 text-lg text-gray-600">
         <p>
-          Your client asks: <span class="text-white">"Can you blur everything except us during our first dance?"</span>
+          Your client asks: <span class="text-gray-900 font-medium">"Can you blur everything except us during our first dance?"</span>
         </p>
         <p>
           You know exactly how to apply that blur. Every editing tool supports selections. The effect takes 30 seconds.
         </p>
         <p>
-          But creating accurate masks on moving footage? That's hours of frame-by-frame work. So you say <span class="text-white">"that's not really possible with our setup."</span>
+          But creating accurate masks on moving footage? That's hours of frame-by-frame work. So you say <span class="text-gray-900 font-medium">"that's not really possible with our setup."</span>
         </p>
-        <p class="text-white font-medium">
+        <p class="text-amber-600 font-semibold">
           Not anymore.
         </p>
       </div>
@@ -127,165 +155,165 @@
   </section>
 
   <!-- How It Works -->
-  <section class="py-16 px-6 border-t border-white/5">
+  <section class="py-16 px-6 border-t border-amber-100">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-12 text-center">Dead simple</h2>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="text-center">
           <div class="text-4xl mb-4">📤</div>
           <h3 class="font-semibold mb-2">Upload footage</h3>
-          <p class="text-gray-400 text-sm">MP4, MOV, any standard format</p>
+          <p class="text-gray-500 text-sm">MP4, MOV, any standard format</p>
         </div>
         <div class="text-center">
           <div class="text-4xl mb-4">💬</div>
           <h3 class="font-semibold mb-2">Describe the target</h3>
-          <p class="text-gray-400 text-sm">"bride and groom" or "guy in blue suit"</p>
+          <p class="text-gray-500 text-sm">"bride and groom" or "guy in blue suit"</p>
         </div>
         <div class="text-center">
           <div class="text-4xl mb-4">🎭</div>
           <h3 class="font-semibold mb-2">Get masks back</h3>
-          <p class="text-gray-400 text-sm">PNG sequence, ready for Premiere/DaVinci</p>
+          <p class="text-gray-500 text-sm">PNG sequence, ready for Premiere/DaVinci</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Use Cases -->
-  <section class="py-16 px-6 border-t border-white/5 bg-gray-900/50">
+  <section class="py-16 px-6 border-t border-amber-100 bg-amber-50/50">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-4 text-center">What wedding videographers use it for</h2>
-      <p class="text-gray-400 text-center mb-12">These presets cover 98% of requests</p>
+      <p class="text-gray-500 text-center mb-12">These presets cover 98% of requests</p>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gray-900 rounded-lg p-6 border border-white/5">
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-amber-100">
           <h3 class="font-semibold mb-2">Isolate the couple</h3>
-          <p class="text-gray-400 text-sm">Dreamy background blur, cinematic color grading, light effects on just the newlyweds</p>
+          <p class="text-gray-500 text-sm">Dreamy background blur, cinematic color grading, light effects on just the newlyweds</p>
         </div>
-        <div class="bg-gray-900 rounded-lg p-6 border border-white/5">
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-amber-100">
           <h3 class="font-semibold mb-2">Remove a person</h3>
-          <p class="text-gray-400 text-sm">Drunk relative, ex in the background, uninvited guest, photobomber</p>
+          <p class="text-gray-500 text-sm">Drunk relative, ex in the background, uninvited guest, photobomber</p>
         </div>
-        <div class="bg-gray-900 rounded-lg p-6 border border-white/5">
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-amber-100">
           <h3 class="font-semibold mb-2">Isolate the first dance</h3>
-          <p class="text-gray-400 text-sm">The hero shot of every wedding film. Flowing dress, movement, emotion.</p>
+          <p class="text-gray-500 text-sm">The hero shot of every wedding film. Flowing dress, movement, emotion.</p>
         </div>
-        <div class="bg-gray-900 rounded-lg p-6 border border-white/5">
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-amber-100">
           <h3 class="font-semibold mb-2">Isolate the speaker</h3>
-          <p class="text-gray-400 text-sm">Clean up toasts, vows, speeches. Focus on the moment.</p>
+          <p class="text-gray-500 text-sm">Clean up toasts, vows, speeches. Focus on the moment.</p>
         </div>
-        <div class="bg-gray-900 rounded-lg p-6 border border-white/5">
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-amber-100">
           <h3 class="font-semibold mb-2">Remove objects</h3>
-          <p class="text-gray-400 text-sm">Trash can, exit sign, catering cart, someone's phone in frame</p>
+          <p class="text-gray-500 text-sm">Trash can, exit sign, catering cart, someone's phone in frame</p>
         </div>
-        <div class="bg-gray-900 rounded-lg p-6 border border-white/5">
+        <div class="bg-white rounded-lg p-6 shadow-sm border border-amber-100">
           <h3 class="font-semibold mb-2">Isolate the wedding party</h3>
-          <p class="text-gray-400 text-sm">Group shots, family portraits in motion, bridesmaids and groomsmen</p>
+          <p class="text-gray-500 text-sm">Group shots, family portraits in motion, bridesmaids and groomsmen</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="py-24 px-6 border-t border-white/5">
+  <section id="pricing" class="py-24 px-6 border-t border-amber-100">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-bold mb-4 text-center">Simple pricing</h2>
-      <p class="text-gray-400 text-center mb-12">Cancel anytime. Unused minutes roll over one month.</p>
+      <p class="text-gray-500 text-center mb-12">Cancel anytime. Unused tokens roll over one month.</p>
       
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Starter -->
-        <div class="pricing-card bg-gray-900 rounded-xl p-8 border border-white/5">
+        <div class="pricing-card bg-white rounded-xl p-8 shadow-sm border border-amber-100">
           <h3 class="text-lg font-semibold mb-2">Starter</h3>
-          <p class="text-gray-400 text-sm mb-4">3-6 weddings/month</p>
+          <p class="text-gray-500 text-sm mb-4">3-6 weddings/month</p>
           <div class="mb-6">
             <span class="text-4xl font-bold">$49</span>
-            <span class="text-gray-400">/month</span>
+            <span class="text-gray-500">/month</span>
           </div>
-          <ul class="space-y-3 text-sm text-gray-300 mb-8">
-            <li>✓ 30 minutes of footage</li>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <li>✓ 30 tokens</li>
             <li>✓ All presets included</li>
             <li>✓ PNG mask sequences</li>
             <li>✓ ZIP downloads</li>
           </ul>
-          <a href="#" class="block text-center bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+          <a href="/app" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium px-6 py-3 rounded-lg transition-colors">
             Start Free Trial
           </a>
         </div>
 
         <!-- Pro -->
-        <div class="pricing-card bg-gray-900 rounded-xl p-8 border-2 border-indigo-500 relative">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+        <div class="pricing-card bg-white rounded-xl p-8 border-2 border-amber relative shadow-lg">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber text-white text-xs font-semibold px-3 py-1 rounded-full">
             Most Popular
           </div>
           <h3 class="text-lg font-semibold mb-2">Pro</h3>
-          <p class="text-gray-400 text-sm mb-4">10-20 weddings/month</p>
+          <p class="text-gray-500 text-sm mb-4">10-20 weddings/month</p>
           <div class="mb-6">
             <span class="text-4xl font-bold">$149</span>
-            <span class="text-gray-400">/month</span>
+            <span class="text-gray-500">/month</span>
           </div>
-          <ul class="space-y-3 text-sm text-gray-300 mb-8">
-            <li>✓ 100 minutes of footage</li>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <li>✓ 100 tokens</li>
             <li>✓ All presets included</li>
             <li>✓ PNG mask sequences</li>
             <li>✓ ZIP downloads</li>
             <li>✓ Priority processing</li>
           </ul>
-          <a href="#" class="block text-center bg-indigo-500 hover:bg-indigo-400 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+          <a href="/app" class="block text-center bg-amber hover:bg-amber-600 text-white font-medium px-6 py-3 rounded-lg transition-colors">
             Start Free Trial
           </a>
         </div>
 
         <!-- Studio -->
-        <div class="pricing-card bg-gray-900 rounded-xl p-8 border border-white/5">
+        <div class="pricing-card bg-white rounded-xl p-8 shadow-sm border border-amber-100">
           <h3 class="text-lg font-semibold mb-2">Studio</h3>
-          <p class="text-gray-400 text-sm mb-4">High volume teams</p>
+          <p class="text-gray-500 text-sm mb-4">High volume teams</p>
           <div class="mb-6">
             <span class="text-4xl font-bold">$299</span>
-            <span class="text-gray-400">/month</span>
+            <span class="text-gray-500">/month</span>
           </div>
-          <ul class="space-y-3 text-sm text-gray-300 mb-8">
-            <li>✓ 300 minutes of footage</li>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <li>✓ 300 tokens</li>
             <li>✓ All presets included</li>
             <li>✓ PNG mask sequences</li>
             <li>✓ ZIP downloads</li>
             <li>✓ Priority processing</li>
             <li>✓ Team accounts (coming soon)</li>
           </ul>
-          <a href="#" class="block text-center bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+          <a href="/app" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium px-6 py-3 rounded-lg transition-colors">
             Start Free Trial
           </a>
         </div>
       </div>
 
-      <p class="text-center text-gray-500 text-sm mt-8">
-        Need more? Overage is $1.50/minute. Or <a href="mailto:hello@vfxbuddy.ai" class="text-indigo-400 hover:text-indigo-300">contact us</a> for custom plans.
+      <p class="text-center text-gray-400 text-sm mt-8">
+        Need more? Overage is $1.50/token. Or <a href="mailto:hello@vfxbuddy.ai" class="text-amber-600 hover:text-amber-700">contact us</a> for custom plans.
       </p>
     </div>
   </section>
 
   <!-- Value Prop -->
-  <section class="py-16 px-6 border-t border-white/5 bg-indigo-950/30">
+  <section class="py-16 px-6 border-t border-amber-100 bg-amber-50">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-4">$29/month vs. hours of your time</h2>
-      <p class="text-gray-400">
+      <h2 class="text-2xl font-bold mb-4">$49/month vs. hours of your time</h2>
+      <p class="text-gray-600">
         Manual rotoscoping costs $50-400 per minute of footage. We're less than the price of a single hour of your editing time, and we handle the tedious work so you can focus on the creative.
       </p>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-24 px-6 border-t border-white/5">
+  <section class="py-24 px-6 border-t border-amber-100">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-3xl sm:text-4xl font-bold mb-4">When the client wants the impossible</h2>
-      <p class="text-xl text-gray-400 mb-8">Call your buddy.</p>
-      <a href="#pricing" class="inline-block bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors">
+      <p class="text-xl text-gray-500 mb-8">Call your buddy.</p>
+      <a href="/app" class="inline-block bg-amber hover:bg-amber-600 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors shadow-lg">
         Start Free Trial
       </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 px-6 border-t border-white/5">
-    <p class="text-center text-sm text-gray-600">
-      © 2025 VFX Buddy. Denver, CO.
+  <footer class="py-8 px-6 border-t border-amber-100 bg-header-dark text-white">
+    <p class="text-center text-sm text-gray-400">
+      © 2025 VFX Buddy. Making wedding videos magical.
     </p>
   </footer>
 
