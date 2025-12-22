@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/app",
+      "destination": "https://vfxbuddy.vercel.app/"
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "https://vfxbuddy.vercel.app/:path*"
+    }
+  ]
+}
